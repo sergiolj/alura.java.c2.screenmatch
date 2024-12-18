@@ -1,6 +1,8 @@
 package br.alura.screenmatch.models;
 
-public class Title {
+import br.alura.screenmatch.calcs.Rateable;
+
+public class Title implements Rateable {
     private String title;
     private int releaseYear;
     private String genre;
@@ -9,6 +11,7 @@ public class Title {
     private int totalRating = 0;
     private int ratingStars = 0;
     private int duration;
+    protected String technicalSheet;
 
     public Title() {}
 
@@ -45,10 +48,6 @@ public class Title {
         return duration;
     }
 
-    public int getRatingStars() {
-        return ratingStars;
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }
@@ -64,9 +63,6 @@ public class Title {
         this.duration = duration;
     }
 
-    /*
-        Methods
-         */
     public void showTechnicalSheet(){
         System.out.println(this.toString());
     }
@@ -79,5 +75,13 @@ public class Title {
 
     public void setRatingStars(){
         this.ratingStars = (int) (rating/totalRating)/2;
+    }
+
+    @Override
+    public int getRate() {
+        return this.ratingStars;
+    }
+    public String toString(){
+        return "";
     }
 }

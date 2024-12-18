@@ -1,29 +1,33 @@
 package br.alura.screenmatch.models;
 
-public class Series extends Title{
+public class Series extends Title {
     private int seasons;
-    private int episodes;
+    private int episodesPerSeason;
     boolean inProduction;
-    private int episodeDuration;
+    private int averageEpisodesDuration;
+
+    public int getAverageEpisodesDuration() {
+        return averageEpisodesDuration;
+    }
+
+    public void setAverageEpisodesDuration(int averageEpisodesDuration) {
+        this.averageEpisodesDuration = averageEpisodesDuration;
+    }
 
     public int getSeasons() {
         return seasons;
-    }
-
-    public void setEpisodeDuration(int episodeDuration) {
-        this.episodeDuration = episodeDuration;
     }
 
     public void setSeasons(int seasons) {
         this.seasons = seasons;
     }
 
-    public int getEpisodes() {
-        return episodes;
+    public int getEpisodesPerSeason() {
+        return episodesPerSeason;
     }
 
-    public void setEpisodes(int episodes) {
-        this.episodes = episodes;
+    public void setEpisodesPerSeason(int episodesPerSeason) {
+        this.episodesPerSeason = episodesPerSeason;
     }
 
     public boolean isInProduction() {
@@ -36,12 +40,18 @@ public class Series extends Title{
 
     @Override
     public String toString() {
-        return "";
+      this.technicalSheet = """
+                Series: %s
+                Seasons: %s
+                Episodes: %d
+                Rating: %d
+                """.formatted(this.getTitle(), this.getSeasons(),this.getEpisodesPerSeason(), this.getRate());
+            return technicalSheet;
     }
 
     @Override
     public int getDuration() {
-        return (this.seasons * this.episodes * this.episodeDuration);
+        return (this.seasons * this.episodesPerSeason * this.averageEpisodesDuration);
     }
     @Override
     /**

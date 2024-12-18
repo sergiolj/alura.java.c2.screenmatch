@@ -1,5 +1,7 @@
 package br.alura.screenmatch.models;
 
+import br.alura.screenmatch.calcs.Rateable;
+
 public class Movie extends Title{
     private String director;
 
@@ -19,6 +21,7 @@ public class Movie extends Title{
     public void setDirector(String director) {
         this.director = director;
     }
+
     @Override
     public String toString() {
         String movieTechnicalSheet;
@@ -26,8 +29,7 @@ public class Movie extends Title{
             Title: %s\t Release Year: %d\t Genre: %s\t Duration: %d
             Director: %s
             Ratting Stars: %d
-            """.formatted(super.getTitle(),super.getReleaseYear(),super.getGenre(),super.getDuration(), this.director, super.getRatingStars());
+            """.formatted(super.getTitle(),super.getReleaseYear(),super.getGenre(),super.getDuration(), this.director, super.getRate());
         return movieTechnicalSheet;
     }
-
 }

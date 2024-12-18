@@ -1,6 +1,8 @@
 package br.alura.screenmatch.main;
 
 import br.alura.screenmatch.calcs.Calculator;
+import br.alura.screenmatch.calcs.FilterTrends;
+import br.alura.screenmatch.models.Episode;
 import br.alura.screenmatch.models.Movie;
 import br.alura.screenmatch.models.Series;
 
@@ -29,9 +31,24 @@ public class Main {
 
         Series series = new Series();
         series.setTitle("Lost");
-        series.setEpisodeDuration(45);
-        series.setEpisodes(20);
+        series.setAverageEpisodesDuration(45);
+        series.setEpisodesPerSeason(20);
         series.setSeasons(6);
+
+        series.userRating(7.0);
+
+        series.showTechnicalSheet();
+
+
+        Episode episode = new Episode();
+        episode.setSeries(series);
+        episode.setNumber(1);
+        episode.setSeason(1);
+        episode.setTitle("Pilot (Part 1)");
+        episode.setEpisodeDuration(105);
+        episode.userRating(10);
+
+        episode.showTechnicalSheet();
 
         //Method setDuration not supported for subclass Series
         //series.setDuration(0);
@@ -46,6 +63,21 @@ public class Main {
         calc.addTitleDuration(movie);
         calc.addTitleDuration(movie1);
 
-        System.out.println("You will need about "+ calc.getMarathonHours() + " hours to complete your marathon.");
+        FilterTrends filter = new FilterTrends();
+        System.out.println(series.getTitle() + " \nFilter Trends result: ");
+        filter.trends(series);
+
+
+        System.out.println("You will need about "+ calc.getMarathonHours() + " hours to complete your marathon.\n");
+        Episode episode2 = new Episode();
+        episode2.setSeries(series);
+        episode2.setNumber(2);
+        episode2.setSeason(1);
+        episode2.setWatchedCounter(200);
+        episode2.setTitle("Pilot (Part 2)");
+
+        System.out.println(episode2.getTitle() + " \nFilter Trends result: ");
+        filter.trends(episode2);
     }
+
 }
