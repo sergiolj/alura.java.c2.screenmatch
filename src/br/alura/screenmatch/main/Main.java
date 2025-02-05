@@ -5,6 +5,9 @@ import br.alura.screenmatch.calcs.FilterTrends;
 import br.alura.screenmatch.models.Episode;
 import br.alura.screenmatch.models.Movie;
 import br.alura.screenmatch.models.Series;
+import br.alura.screenmatch.models.Title;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -78,6 +81,22 @@ public class Main {
 
         System.out.println(episode2.getTitle() + " \nFilter Trends result: ");
         filter.trends(episode2);
+
+        ArrayList<Title> list = new ArrayList<>();
+        list.add(movie1);
+        list.add(movie);
+        list.add(series);
+
+        System.out.println(list);
+        for (Title title : list) {
+            if(title instanceof Series s) {
+                System.out.println(title.getTitle() + " ["+s.getSeasons()+" Seasons]");
+            }else{
+                System.out.println(title.getTitle());
+            }
+        }
+        //list.forEach(System.out::println);
+
     }
 
 }

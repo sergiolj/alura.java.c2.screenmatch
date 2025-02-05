@@ -1,10 +1,10 @@
 package horaDaPratica.interfac;
 
-public class RectangularShape extends Shape implements GeometricCalculation {
+public class Rectangular extends Shape implements GeometricCalculation {
     private double length;
     private double width;
 
-    public RectangularShape(double length, double width) {
+    public Rectangular(double length, double width) {
         super();
         this.length = length;
         this.width = width;
@@ -26,27 +26,28 @@ public class RectangularShape extends Shape implements GeometricCalculation {
         this.width = width;
     }
 
-    @Override
     public double calculateArea(double length, double width) {
-        super.area = length * width;
-        return super.area;
+        double area = length * width;
+        setArea(area);
+        return this.getArea();
     }
 
-    @Override
     public double calculatePerimeter(double length, double width) {
-        this.perimeter = (length * 2) + (width * 2);
-        return this.perimeter;
+        double perimeter =  (length * 2) + (width * 2);
+        setPerimeter(perimeter);
+        return this.getPerimeter();
     }
 
     @Override
     public double calculateArea() {
-            super.area = this.length * this.width;
-        return this.area;
+        setArea(this.length * this.width);
+        return getArea();
     }
 
     @Override
     public double calculatePerimeter() {
-        return 0;
+        setPerimeter((length * 2) + (width * 2));
+        return getPerimeter();
     }
 
 }

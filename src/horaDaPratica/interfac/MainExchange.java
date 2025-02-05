@@ -7,7 +7,6 @@ public class MainExchange {
 
         System.out.println(converter.BzRealToUSD(100));
 
-
     }
 
 
