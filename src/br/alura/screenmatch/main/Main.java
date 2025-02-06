@@ -8,6 +8,9 @@ import br.alura.screenmatch.models.Series;
 import br.alura.screenmatch.models.Title;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,7 +40,7 @@ public class Main {
         series.setAverageEpisodesDuration(45);
         series.setEpisodesPerSeason(20);
         series.setSeasons(6);
-
+        series.setReleaseYear(2004);
         series.userRating(7.0);
 
         series.showTechnicalSheet();
@@ -82,7 +85,7 @@ public class Main {
         System.out.println(episode2.getTitle() + " \nFilter Trends result: ");
         filter.trends(episode2);
 
-        ArrayList<Title> list = new ArrayList<>();
+        List<Title> list = new ArrayList<>();
         list.add(movie1);
         list.add(movie);
         list.add(series);
@@ -95,8 +98,16 @@ public class Main {
                 System.out.println(title.getTitle());
             }
         }
-        //list.forEach(System.out::println);
+        System.out.println("\nforEach method from List");
+        list.forEach(System.out::println);
 
+        Collections.sort(list);
+        System.out.println("\nList after Collections sort");
+        System.out.println(list);
+
+        System.out.println("\nList using Comparator.comparing");
+        list.sort(Comparator.comparing(Title::getReleaseYear));
+        System.out.println(list);
     }
 
 }

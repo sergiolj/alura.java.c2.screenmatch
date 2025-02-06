@@ -39,14 +39,17 @@ public class Series extends Title {
     }
 
     @Override
-    public String toString() {
-      this.technicalSheet = """
-                Series: %s
-                Seasons: %s
-                Episodes: %d
-                Rating: %d
-                """.formatted(this.getTitle(), this.getSeasons(),this.getEpisodesPerSeason(), this.getRate());
-            return technicalSheet;
+//    public String toString() {
+//      this.technicalSheet = """
+//                Series: %s
+//                Seasons: %s
+//                Episodes: %d
+//                Rating: %d
+//                """.formatted(this.getTitle(), this.getSeasons(),this.getEpisodesPerSeason(), this.getRate());
+//            return technicalSheet;
+//    }
+    public String toString(){
+        return "[" + this.getTitle() + " (" + this.getReleaseYear()+") ]";
     }
 
     @Override

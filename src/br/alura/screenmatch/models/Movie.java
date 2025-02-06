@@ -23,13 +23,17 @@ public class Movie extends Title{
     }
 
     @Override
-    public String toString() {
-        String movieTechnicalSheet;
-        movieTechnicalSheet = """
-            Title: %s\t Release Year: %d\t Genre: %s\t Duration: %d
-            Director: %s
-            Ratting Stars: %d
-            """.formatted(super.getTitle(),super.getReleaseYear(),super.getGenre(),super.getDuration(), this.director, super.getRate());
-        return movieTechnicalSheet;
+//    public String toString() {
+//        String movieTechnicalSheet;
+//        movieTechnicalSheet = """
+//            Title: %s\t Release Year: %d\t Genre: %s\t Duration: %d
+//            Director: %s
+//            Ratting Stars: %d
+//            """.formatted(super.getTitle(),super.getReleaseYear(),super.getGenre(),super.getDuration(), this.director, super.getRate());
+//        return movieTechnicalSheet;
+//    }
+    public String toString(){
+        return "[" + this.getTitle() + " (" + this.getReleaseYear()+") ]";
     }
+
 }
