@@ -63,7 +63,7 @@ public class OrderBy {
 //        Title t10 = new Title("Wicked");
 
         //List<Title> oscar25 = new ArrayList<Title>();
-        
+
         List<Title> oscar25 = new LinkedList<Title>();
         oscar25.add(new Title("Anora", 2024, "Drama, Comedy"));
         oscar25.add(new Title("The Brutalist", 2024, "Drama"));
