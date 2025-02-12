@@ -1,15 +1,21 @@
 package br.alura.screenmatch.models;
 
 import br.alura.screenmatch.calcs.Rateable;
+import com.google.gson.annotations.SerializedName;
 
 public class Title implements Rateable, Comparable<Title> {
+    @SerializedName("Title")
     private String title;
+    @SerializedName("Year")
     private int releaseYear;
+    @SerializedName("Genre")
     private String genre;
+
     private String subscriptionType;
     private double rating;
     private int totalRating = 0;
     private int ratingStars = 0;
+    //@SerializedName("Runtime")
     private int duration;
     protected String technicalSheet;
 
