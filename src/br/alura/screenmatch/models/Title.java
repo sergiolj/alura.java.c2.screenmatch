@@ -1,15 +1,16 @@
 package br.alura.screenmatch.models;
 
 import br.alura.screenmatch.calcs.Rateable;
-import com.google.gson.annotations.SerializedName;
+//import com.google.gson.annotations.SerializedName;
 
 public class Title implements Rateable, Comparable<Title> {
-    @SerializedName("Title")
+   // @SerializedName("Title")
     private String title;
-    @SerializedName("Year")
+    //@SerializedName("Year")
     private int releaseYear;
-    @SerializedName("Genre")
+    //@SerializedName("Genre")
     private String genre;
+    private String synopsis;
 
     private String subscriptionType;
     private double rating;
@@ -28,6 +29,18 @@ public class Title implements Rateable, Comparable<Title> {
         this.genre = genre;
     }
 
+    /**
+     * Constructor using an object data used to consume API data.
+     * @param titleOmdb Temporary object used to consume API.
+     */
+    public Title(TitleOmdb titleOmdb) {
+        this.title = titleOmdb.title();
+        String runtime = titleOmdb.runtime().replace(" min","");
+        this.duration = Integer.parseInt(runtime);
+        this.releaseYear = titleOmdb.year();
+        this.synopsis = titleOmdb.plot();
+    }
+
     /*
         Getters and Setters
          */
@@ -36,6 +49,14 @@ public class Title implements Rateable, Comparable<Title> {
     }
     public int getReleaseYear() {
         return releaseYear;
+    }
+
+    public String getSynopsis() {
+        return synopsis;
+    }
+
+    public void setSynopsis(String synopsis) {
+        this.synopsis = synopsis;
     }
 
     public String getGenre() {
@@ -93,6 +114,11 @@ public class Title implements Rateable, Comparable<Title> {
         return this.ratingStars;
     }
     public String toString(){
-        return "";
-    }
+        return """
+        Title: %s
+        Release Year: %d
+        Duration: %d
+        Synopsis: %s
+        """.formatted(this.getTitle(),this.getReleaseYear(),this.getDuration(),this.getSynopsis());
+        }
 }
