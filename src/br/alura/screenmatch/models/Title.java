@@ -1,14 +1,12 @@
 package br.alura.screenmatch.models;
 
 import br.alura.screenmatch.calcs.Rateable;
+import br.alura.screenmatch.exception.FormatReleaseYearException;
 //import com.google.gson.annotations.SerializedName;
 
 public class Title implements Rateable, Comparable<Title> {
-   // @SerializedName("Title")
     private String title;
-    //@SerializedName("Year")
     private int releaseYear;
-    //@SerializedName("Genre")
     private String genre;
     private String synopsis;
 
@@ -16,7 +14,6 @@ public class Title implements Rateable, Comparable<Title> {
     private double rating;
     private int totalRating = 0;
     private int ratingStars = 0;
-    //@SerializedName("Runtime")
     private int duration;
     protected String technicalSheet;
 
@@ -36,9 +33,13 @@ public class Title implements Rateable, Comparable<Title> {
     public Title(TitleOmdb titleOmdb) {
         this.title = titleOmdb.title();
         String runtime = titleOmdb.runtime().replace(" min","");
-        this.duration = Integer.parseInt(runtime);
-        this.releaseYear = titleOmdb.year();
+        if(titleOmdb.year().length()>4){
+            throw new FormatReleaseYearException("Error! Unable to create object Title, OMDb year field has more than four digits.");
+        }
+        this.releaseYear = Integer.parseInt(titleOmdb.year());
         this.synopsis = titleOmdb.plot();
+        //
+        this.duration = Integer.parseInt(runtime);
     }
 
     /*
