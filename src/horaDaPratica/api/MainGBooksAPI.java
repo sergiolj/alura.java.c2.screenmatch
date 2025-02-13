@@ -18,7 +18,7 @@ public class MainGBooksAPI {
         bookTitle = bookTitle.strip();
         bookTitle = bookTitle.replaceAll(" ", "_");
 
-        String googleApiKey = "AIzaSyBlH70i3KThMy63ZbrmhhEyilFov0FZI_8";
+        String googleApiKey = "";
         String url = "https://www.googleapis.com/books/v1/volumes?q="+bookTitle+"&key="+googleApiKey;
 
         HttpClient client = HttpClient.newHttpClient();
