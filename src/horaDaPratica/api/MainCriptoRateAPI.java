@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class MainCriptoRateAPI {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner sc = new Scanner(System.in);
-        String key = "CG-z5rVNFcHKSFDb4QkPUao6Row";
+        String key = "";
 
         System.out.print("Inform Crypto Coin name: (bitcoin)(ethereum)");
         String digiCoin = sc.nextLine();
