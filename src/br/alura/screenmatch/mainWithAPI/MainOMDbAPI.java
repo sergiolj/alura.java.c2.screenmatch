@@ -22,8 +22,8 @@ public class MainOMDbAPI {
         var search = scanner.nextLine();
         search = search.strip();
         search = search.replace(" ", "_");
-
-        String url = "https://www.omdbapi.com/?t="+search+"&apikey=4d76d7b0";
+        var key = "";
+        String url = "https://www.omdbapi.com/?t="+search+"&apikey="+key;
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
