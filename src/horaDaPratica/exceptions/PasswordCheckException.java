@@ -48,4 +48,5 @@ public class PasswordCheckException {
             throw new InvalidPasswordException("Password invalid! A valid password must have at least 5 letters");
         }
     }
+    sc.close();
 }
