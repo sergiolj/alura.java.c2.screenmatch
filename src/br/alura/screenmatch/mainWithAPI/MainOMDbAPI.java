@@ -57,7 +57,7 @@ public class MainOMDbAPI {
             System.out.println(title);
 
             FileWriter file=new FileWriter("filmsList.txt");
-            file.write(title.toString());
+            file.append((title.toString()));
             file.close();
         } catch (FormatReleaseYearException e) {
             System.out.println(e.getMessage());
